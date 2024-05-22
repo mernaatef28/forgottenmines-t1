@@ -12,7 +12,6 @@ class Article {
     return Article(
       title: json['title'] as String,
       description: json['description'] as String,
-    
     );
   }
 }
@@ -23,7 +22,7 @@ class NewsApp extends StatelessWidget {
     final response = await http.get(
       Uri.parse('https://newsapi.org/v2/top-headlines?country=us&apiKey=44e183eb307d45648fa402c90d485a14'));
       var jsonData = convert.jsonDecode(response.body) ;
-        print((jsonData['articles'] as List).map((articleJson) =>Article(title: articleJson['title'], description: articleJson['description'])).toList());
+        print( jsonData );
       final articles = (jsonData['articles'] as List)
           .map((articleJson) =>
               Article(title: articleJson['title'], description: articleJson['description']))
