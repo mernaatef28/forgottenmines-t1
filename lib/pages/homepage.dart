@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert ;
 
-
-
-  class Article {
+class Article {
   final String title;
   final String description;
 
@@ -12,11 +10,12 @@ import 'dart:convert' as convert ;
 
   factory Article.fromJson(Map<String, dynamic> json) {
     return Article(
-      title: json['title'] ?? 'No Title',
-      description: json['description'] ?? 'No Description',
+      title: json['title'] as String,
+      description: json['description'] as String,
+    
     );
   }
-  }
+}
 
 
 class NewsApp extends StatelessWidget {
